@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黃詠信 Bruce Huang | 數位名片</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#FAFAFA] text-gray-800 antialiased min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="math-decoration top-icon select-none">$\sum$</div>
+    <div class="math-decoration bottom-icon select-none">$\infty$</div>
+
+    <div class="max-w-4xl w-full glass-card rounded-3xl shadow-2xl overflow-hidden relative">
+        <div class="grid md:grid-cols-12">
+            <div class="md:col-span-8 p-8 md:p-12">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    <span class="text-xs text-gray-400 code-font ml-2 italic">Bruce_Portfolio.js</span>
+                </div>
+                
+                <h2 class="text-blue-600 font-mono text-sm tracking-tighter mb-2">// CS Senior @ University, Math Grandmaster</h2>
+                <h1 class="text-3xl md:text-5xl font-bold mb-6 code-font leading-tight">
+                    <span class="text-purple-600">while</span>(problem) {<br>
+                    <span class="ml-6 md:ml-10 text-green-600" id="typewriter"></span><span class="cursor-blink">&nbsp;</span><br>
+                    }
+                </h1>
+                
+                <p id="slogan-carousel" class="text-gray-500 border-l-4 border-blue-500 pl-4 py-1 mb-10 italic font-medium min-h-[50px]">
+                    </p>
+
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-sm text-gray-400 uppercase tracking-widest">About Me</h3>
+                        <p class="text-xl font-bold">黃詠信 <span class="text-sm font-normal text-gray-500 ml-1">Bruce Huang</span></p>
+                        <p class="text-sm leading-relaxed text-gray-600">
+                            資工系大四生。橫跨數學教育與資訊工程，擁有珠心算背景的運算思維。
+                        </p>
+                        <p class="text-xs text-gray-400 code-font">// WARNING: May spontaneously calculate large numbers in public.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-sm text-gray-400 uppercase tracking-widest">Interests</h3>
+                        <div class="flex flex-wrap gap-2 text-sm font-semibold">
+                            <span class="bg-blue-50 text-blue-600 px-2 py-1 rounded">競技卡牌玩家</span>
+                            <span class="bg-blue-50 text-blue-600 px-2 py-1 rounded">運動愛好者</span>
+                        </div>
+                        <p class="text-xs text-gray-400 code-font">// DEBUG: Always optimizing the perfect deck.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-4 bg-gray-50/80 p-8 flex flex-col justify-between border-l border-gray-100">
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="label">Expertise</h4>
+                        <ul class="text-sm font-semibold space-y-2 text-gray-700">
+                            <li>• 國高中 / 幼童數學教育</li>
+                            <li>• 珠心算專長</li>
+                            <li>• 國中小程式教育</li>
+                            <li>• Web Development</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="label">Experience</h4>
+                        <div class="text-sm space-y-1">
+                            <p class="font-bold">補教業數學教育 2yr+</p>
+                            <p class="font-bold">數理個人家教 1yr</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="label">Future Goal</h4>
+                        <p class="text-sm font-bold text-blue-700">教育科技 (EdTech) 開發者</p>
+                        <p class="text-xs text-gray-400 code-font">// TODO: Build an AI that can play my card games for me.</p>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-gray-200">
+                    <div class="flex flex-col gap-2">
+                        <a href="https://github.com/BruceHuang00" target="_blank" class="social-link font-mono">GitHub: BruceHuang00</a>
+                        <a href="mailto:bruce930810@gmail.com" class="social-link font-mono">bruce930810@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Typewriter effect for the main code slogan
+        const typeTexts = ["logic.solve();", "code.build();", "move.calculate();"];
+        let typeIdx = 0, charIdx = 0, isDel = false;
+        function typeWriterEffect() {
+            const currentText = typeTexts[typeIdx];
+            document.getElementById("typewriter").textContent = isDel ? currentText.substring(0, charIdx--) : currentText.substring(0, charIdx++);
+            if (!isDel && charIdx > currentText.length) { isDel = true; setTimeout(typeWriterEffect, 2000); }
+            else if (isDel && charIdx < 0) { isDel = false; typeIdx = (typeIdx + 1) % typeTexts.length; charIdx = 0; setTimeout(typeWriterEffect, 500); }
+            else setTimeout(typeWriterEffect, isDel ? 50 : 120);
+        }
+        window.onload = typeWriterEffect;
+
+        // Slogan carousel effect
+        const slogans = [
+            "「算無遺策：在程式中佈局邏輯，在數學中尋找勝率。」",
+            "「用數學的嚴謹定義問題，用程式的邏輯建構答案。」"
+        ];
+        let sloganIndex = 0;
+        const sloganElement = document.getElementById("slogan-carousel");
+
+        function rotateSlogans() {
+            sloganElement.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                sloganElement.textContent = slogans[sloganIndex];
+                sloganElement.style.opacity = 1; // Fade in
+                sloganIndex = (sloganIndex + 1) % slogans.length;
+            }, 500); // Wait for fade out
+            setTimeout(rotateSlogans, 5000); // Change every 5 seconds
+        }
+
+        // Start slogan rotation after typewriter effect begins
+        setTimeout(rotateSlogans, 500); // Give a small delay after page load
+    </script>
+</body>
+</html>

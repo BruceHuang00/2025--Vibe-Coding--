@@ -1,0 +1,46 @@
+body { font-family: 'Noto Sans TC', sans-serif; overflow-x: hidden; }
+.code-font { font-family: 'Fira Code', monospace; }
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.math-decoration {
+    position: fixed;
+    font-size: 20rem;
+    color: rgba(37, 99, 235, 0.03);
+    z-index: -1;
+    font-family: 'Fira Code', serif; /* 使用等寬字體讓數學符號更有程式感 */
+}
+.top-icon { top: -15%; left: -5%; transform: rotate(-10deg); }
+.bottom-icon { bottom: -15%; right: -5%; transform: rotate(10deg); }
+
+.label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.6rem;
+}
+
+.social-link {
+    font-size: 0.75rem;
+    color: #64748B;
+    transition: all 0.3s;
+}
+.social-link:hover { color: #2563EB; text-decoration: underline; }
+
+/* 確保標語輪播區塊高度固定，避免跳動 */
+#slogan-carousel {
+    min-height: 3.5rem; /* 根據字體大小和行高調整，確保能容納兩行標語 */
+    transition: opacity 0.5s ease-in-out; /* 淡入淡出效果 */
+}
+
+.cursor-blink {
+    border-right: 3px solid #059669;
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink { from, to { border-color: transparent; } 50% { border-color: #059669; } }
